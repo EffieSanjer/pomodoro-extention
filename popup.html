@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <h1>POMODORO</h1>
+  <span>timer</span>
+</header>
+
+<main>
+  <section class="container flex-container">
+    <div class="timer-display">
+
+      <div class="ellipse">
+        <div class="ellipse-stroke"></div>
+        <div id="session-timer-display">00:00</div>
+      </div>
+    </div>
+    <span id="status-display">&nbsp;</span>
+
+    <div class="flex-container">
+      <div class="session-info">
+        <span id="session-number-display">1</span>
+        <span>session</span>
+      </div>
+
+      <button id="start-timer">
+        <img id="play" src="icons/play.png" width="10">
+        <img id="pause" hidden src="icons/pause.png" width="10">
+      </button>
+    </div>
+
+  </section>
+</main>
+
+<footer class="footer">
+  <p class="reset-button hidden" id="reset-timer">reset</p>
+  <div class="info-button">
+    <img src="icons/info.png" width="12">
+    <div class="info-badge">
+      <p>
+        The Pomodoro Technique is a time management method.
+        It uses a timer to break work into intervals,
+        typically 25 or 50 minutes in length, separated by short
+        breaks.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="popup.js"></script>
+</body>
+</html>
