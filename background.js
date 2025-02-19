@@ -30,6 +30,7 @@ function startTimer() {
       if (timeLeft > 0) {
         timeLeft--;
         updateBadge();
+        if (timeLeft < 3) playSound();
       } else {
         clearInterval(interval);
         isRunning = false;
@@ -84,3 +85,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     });
   }
 });
+
+
+async function playSound(source = 'bell.mp3', volume = 1) {
+  await createOffscreen();
+  await chrome.runtime.sendMessage({ play: { source, volume } });
+}
+
+async function createOffscreen() {
+  if (await chrome.offscreen.hasDocument()) return;
+  await chrome.offscreen.createDocument({
+    url: 'offscreen.html',
+    reasons: ['AUDIO_PLAYBACK'],
+    justification: 'testing'
+  });
+}
