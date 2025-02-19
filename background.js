@@ -30,7 +30,7 @@ function startTimer() {
       if (timeLeft > 0) {
         timeLeft--;
         updateBadge();
-        if (timeLeft < 3) playSound();
+        if (timeLeft === 60 || timeLeft < 3) playSound();
       } else {
         clearInterval(interval);
         isRunning = false;
